@@ -1,0 +1,10 @@
+E:\ASP.NET\sakim\sakim\bin\sakim.dll.config
+E:\ASP.NET\sakim\sakim\bin\sakim.dll
+E:\ASP.NET\sakim\sakim\bin\sakim.pdb
+E:\ASP.NET\sakim\sakim\obj\Debug\sakim.dll
+E:\ASP.NET\sakim\sakim\obj\Debug\sakim.pdb
+E:\ASP.NET\sakim\sakim\bin\EntityFramework.dll
+E:\ASP.NET\sakim\sakim\bin\EntityFramework.SqlServer.dll
+E:\ASP.NET\sakim\sakim\bin\EntityFramework.xml
+E:\ASP.NET\sakim\sakim\bin\EntityFramework.SqlServer.xml
+E:\ASP.NET\sakim\sakim\obj\Debug\sakim.csprojResolveAssemblyReference.cache

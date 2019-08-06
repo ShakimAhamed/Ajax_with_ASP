@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="test1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="course_id" />
+    </Key>
+    <Property Name="course_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="course_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="room" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Course_Taken">
+    <Key>
+      <PropertyRef Name="student_id" />
+      <PropertyRef Name="course_id" />
+    </Key>
+    <Property Name="student_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="course_id" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="student_id" />
+    </Key>
+    <Property Name="student_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="Course_Taken_fk0">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Course_Taken" Type="Self.Course_Taken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="Course_Taken">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Course_Taken_fk1">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Course_Taken" Type="Self.Course_Taken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="course_id" />
+      </Principal>
+      <Dependent Role="Course_Taken">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="test1ModelStoreContainer">
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course_Taken" EntityType="Self.Course_Taken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Course_Taken_fk0" Association="Self.Course_Taken_fk0">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Course_Taken" EntitySet="Course_Taken" />
+    </AssociationSet>
+    <AssociationSet Name="Course_Taken_fk1" Association="Self.Course_Taken_fk1">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Course_Taken" EntitySet="Course_Taken" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
